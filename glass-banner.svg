@@ -1,28 +1,31 @@
 <svg width="850" height="260" viewBox="0 0 850 260" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Clip path to lock the bubbles strictly inside the glass card -->
+    <!-- Clip path to keep everything locked inside the glass card -->
     <clipPath id="glass-clip">
       <rect x="55" y="30" width="740" height="200" rx="24" />
     </clipPath>
   </defs>
 
   <style>
-    .bg { fill: #001A23; }
-    .blob-1 { fill: #FEFFFC; opacity: 0.6; animation: moveBlob1 8s infinite alternate ease-in-out; }
-    .blob-2 { fill: #DOFFOO; opacity: 0.6; animation: moveBlob2 10s infinite alternate ease-in-out; }
-    .blob-3 { fill: #8116EO; opacity: 0.5; animation: moveBlob3 7s infinite alternate ease-in-out; }
+    .bg { fill: #000000; }
+    
+    /* Glass Card Panel */
     .glass-panel {
-      fill: rgba(255, 255, 255, 0.07);
-      stroke: rgba(255, 255, 255, 0.2);
+      fill: rgba(255, 255, 255, 0.03);
+      stroke: rgba(255, 255, 255, 0.15);
       stroke-width: 1.5;
       rx: 24px;
     }
+
+    /* Typography Styles */
     .title {
-      font-family: 'Segoe UI', -apple-system, sans-serif;
-      font-weight: 800;
-      font-size: 38px;
+      font-family: 'Cloister Black', 'UnifrakturMaguntia', 'Cinzel Decorative', 'Georgia', serif;
+      font-weight: bold;
+      font-size: 42px;
       fill: #ffffff;
       text-anchor: middle;
+      letter-spacing: 2px;
+      filter: drop-shadow(0 2px 8px rgba(255,255,255,0.3));
     }
     .subtitle {
       font-family: monospace;
@@ -30,38 +33,69 @@
       fill: #38bdf8;
       text-anchor: middle;
     }
-    @keyframes moveBlob1 {
-      0% { transform: translate(-20px, -15px) scale(1); }
-      100% { transform: translate(30px, 20px) scale(1.2); }
+
+    /* Static Sparkling Stars */
+    .star {
+      fill: #ffffff;
+      animation: twinkle 2s infinite alternate ease-in-out;
     }
-    @keyframes moveBlob2 {
-      0% { transform: translate(25px, 15px) scale(1.1); }
-      100% { transform: translate(-25px, -15px) scale(0.9); }
+
+    /* Falling Shooting Stars Animation (Right to Left) */
+    .shooting-star {
+      stroke: url(#star-trail);
+      stroke-linecap: round;
+      stroke-width: 2;
+      opacity: 0;
+      animation: fall 3s infinite linear;
     }
-    @keyframes moveBlob3 {
-      0% { transform: translate(15px, -20px) scale(0.9); }
-      100% { transform: translate(-20px, 20px) scale(1.1); }
+
+    @keyframes twinkle {
+      0% { opacity: 0.2; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1.2); }
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translate(0px, 0px);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-350px, 180px);
+        opacity: 0;
+      }
     }
   </style>
 
-  <!-- Background Base -->
+  <defs>
+    <linearGradient id="star-trail" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- OLED Pitch Black Background -->
   <rect width="850" height="260" rx="16" class="bg" />
 
-  <!-- Clipped Container: Everything inside here is trapped inside the glass -->
+  <!-- Clipped Container: Stars and Falling Stars behind the text -->
   <g clip-path="url(#glass-clip)">
-    <!-- Deep background tint for the liquid glass effect -->
-    <rect x="55" y="30" width="740" height="200" fill="#1e1b4b" opacity="0.3" />
-    
-    <!-- Animated Orbs -->
-    <circle cx="250" cy="130" r="90" class="blob-1" />
-    <circle cx="600" cy="130" r="100" class="blob-2" />
-    <circle cx="425" cy="130" r="80" class="blob-3" />
+    <!-- Static Sparkling Stars -->
+    <circle cx="100" cy="60" r="1.5" class="star" style="animation-delay: 0.2s;" />
+    <circle cx="220" cy="180" r="2" class="star" style="animation-delay: 0.8s;" />
+    <circle cx="350" cy="80" r="1" class="star" style="animation-delay: 0.4s;" />
+    <circle cx="500" cy="200" r="2" class="star" style="animation-delay: 1.2s;" />
+    <circle cx="680" cy="70" r="1.5" class="star" style="animation-delay: 0.6s;" />
+    <circle cx="750" cy="160" r="2" class="star" style="animation-delay: 1.5s;" />
+
+    <!-- Falling Shooting Stars (Right to Left) -->
+    <line x1="700" y1="40" x2="630" y2="76" class="shooting-star" style="animation-delay: 0s; animation-duration: 2.5s;" />
+    <line x1="500" y1="50" x2="430" y2="86" class="shooting-star" style="animation-delay: 1.2s; animation-duration: 3.2s;" />
+    <line x1="800" y1="120" x2="730" y2="156" class="shooting-star" style="animation-delay: 2.1s; animation-duration: 2.8s;" />
   </g>
 
-  <!-- Glass Border Overlay (Sits on top for the crisp frosted edge) -->
+  <!-- Glass Border Overlay -->
   <rect x="55" y="30" width="740" height="200" class="glass-panel" />
 
-  <!-- Text -->
+  <!-- Name & Subtitle Text -->
   <text x="425" y="125" class="title">N Muhammad Sharif</text>
-  <text x="425" y="165" class="subtitle">&lt; Computer Science Student &amp; Developer &gt;</text>
+  <text x="425" y="165" class="subtitle">&lt; Computer Science Student &amp; Developer /&gt;</text>
 </svg>
