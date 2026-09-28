@@ -7,10 +7,10 @@
   </defs>
 
   <style>
-    .bg { fill: #0b0f19; }
+    .bg { fill: #001A23; }
     .blob-1 { fill: #8b5cf6; opacity: 0.6; animation: moveBlob1 8s infinite alternate ease-in-out; }
-    .blob-2 { fill: #3b82f6; opacity: 0.6; animation: moveBlob2 10s infinite alternate ease-in-out; }
-    .blob-3 { fill: #ec4899; opacity: 0.5; animation: moveBlob3 7s infinite alternate ease-in-out; }
+    .blob-2 { fill: #B3EFB2; opacity: 0.6; animation: moveBlob2 10s infinite alternate ease-in-out; }
+    .blob-3 { fill: #E8F1F2; opacity: 0.5; animation: moveBlob3 7s infinite alternate ease-in-out; }
     .glass-panel {
       fill: rgba(255, 255, 255, 0.07);
       stroke: rgba(255, 255, 255, 0.2);
