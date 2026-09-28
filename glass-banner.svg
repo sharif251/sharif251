@@ -1,0 +1,59 @@
+<svg width="850" height="260" viewBox="0 0 850 260" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bg { fill: #0b0f19; }
+    .blob-1 { fill: #8b5cf6; opacity: 0.5; animation: moveBlob1 8s infinite alternate ease-in-out; }
+    .blob-2 { fill: #3b82f6; opacity: 0.5; animation: moveBlob2 10s infinite alternate ease-in-out; }
+    .blob-3 { fill: #ec4899; opacity: 0.4; animation: moveBlob3 7s infinite alternate ease-in-out; }
+    .glass-panel {
+      fill: rgba(255, 255, 255, 0.07);
+      stroke: rgba(255, 255, 255, 0.2);
+      stroke-width: 1.5;
+      rx: 24px;
+      animation: floatPanel 6s infinite ease-in-out;
+    }
+    .title {
+      font-family: 'Segoe UI', -apple-system, sans-serif;
+      font-weight: 800;
+      font-size: 38px;
+      fill: #ffffff;
+      text-anchor: middle;
+    }
+    .subtitle {
+      font-family: monospace;
+      font-size: 15px;
+      fill: #38bdf8;
+      text-anchor: middle;
+    }
+    @keyframes moveBlob1 {
+      0% { transform: translate(-30px, -20px) scale(1); }
+      100% { transform: translate(50px, 40px) scale(1.2); }
+    }
+    @keyframes moveBlob2 {
+      0% { transform: translate(40px, 30px) scale(1.1); }
+      100% { transform: translate(-50px, -30px) scale(0.9); }
+    }
+    @keyframes moveBlob3 {
+      0% { transform: translate(20px, -40px) scale(0.9); }
+      100% { transform: translate(-30px, 50px) scale(1.1); }
+    }
+    @keyframes floatPanel {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+  </style>
+
+  <!-- Background Base -->
+  <rect width="850" height="260" rx="16" class="bg" />
+
+  <!-- Animated Orbs -->
+  <circle cx="250" cy="100" r="110" class="blob-1" />
+  <circle cx="600" cy="150" r="130" class="blob-2" />
+  <circle cx="425" cy="130" r="90" class="blob-3" />
+
+  <!-- Glass Card Panel -->
+  <rect x="55" y="30" width="740" height="200" class="glass-panel" />
+
+  <!-- Text -->
+  <text x="425" y="125" class="title">N Muhammad Sharif</text>
+  <text x="425" y="165" class="subtitle">&lt; Computer Science Student &amp; Developer /&gt;</text>
+</svg>
